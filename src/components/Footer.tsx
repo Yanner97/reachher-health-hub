@@ -1,4 +1,5 @@
 import { Heart } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   return (
@@ -6,9 +7,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-10">
           <div>
-            <h3 className="text-xl font-heading font-bold text-primary-foreground mb-3">
-              REACHHER <span className="text-gold">HEALTHTECH</span>
-            </h3>
+            <img src={logo} alt="REACHHER HEALTHTECH logo" className="h-12 w-auto mb-3 brightness-0 invert" />
             <p className="text-primary-foreground/70 font-body text-sm leading-relaxed">
               Empowering women and girls through technology, education, and community leadership in Tanzania.
             </p>

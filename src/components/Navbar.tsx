@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "@/assets/logo.png";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -18,8 +19,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4 px-4">
         <a href="#home" className="flex items-center gap-2">
-          <span className="text-2xl font-heading font-bold text-primary">REACHHER</span>
-          <span className="text-sm font-body font-medium text-gold-dark tracking-wider">HEALTHTECH</span>
+          <img src={logo} alt="REACHHER HEALTHTECH logo" className="h-10 w-auto" />
         </a>
 
         {/* Desktop */}
