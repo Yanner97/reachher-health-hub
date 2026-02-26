@@ -1,19 +1,23 @@
 import { useState } from "react";
 import logo from "@/assets/logo.png";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Programs", href: "#programs" },
-  { label: "Impact", href: "#impact" },
-  { label: "Get Involved", href: "#get-involved" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const navLinks = [
+    { label: t("nav.home"), href: "#home" },
+    { label: t("nav.about"), href: "#about" },
+    { label: t("nav.programs"), href: "#programs" },
+    { label: t("nav.impact"), href: "#impact" },
+    { label: t("nav.getInvolved"), href: "#get-involved" },
+    { label: t("nav.contact"), href: "#contact" },
+  ];
+
+  const toggleLang = () => setLang(lang === "en" ? "sw" : "en");
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
@@ -33,11 +37,21 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+
+          <button
+            onClick={toggleLang}
+            className="flex items-center gap-1.5 text-sm font-body font-semibold text-foreground/70 hover:text-primary border border-border rounded-lg px-3 py-1.5 transition-colors"
+            aria-label="Toggle language"
+          >
+            <Globe size={16} />
+            {lang === "en" ? "SW" : "EN"}
+          </button>
+
           <a
             href="#get-involved"
             className="bg-primary text-primary-foreground px-5 py-2 rounded-lg text-sm font-body font-semibold hover:opacity-90 transition-opacity"
           >
-            Donate
+            {t("nav.donate")}
           </a>
         </div>
 
@@ -71,12 +85,21 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
+
+              <button
+                onClick={toggleLang}
+                className="flex items-center gap-1.5 text-base font-body font-semibold text-foreground/70 hover:text-primary transition-colors self-start"
+              >
+                <Globe size={18} />
+                {lang === "en" ? "Swahili" : "English"}
+              </button>
+
               <a
                 href="#get-involved"
                 onClick={() => setOpen(false)}
                 className="bg-primary text-primary-foreground px-5 py-3 rounded-lg text-center text-sm font-body font-semibold"
               >
-                Donate
+                {t("nav.donate")}
               </a>
             </div>
           </motion.div>
