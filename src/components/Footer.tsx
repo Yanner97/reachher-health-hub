@@ -18,7 +18,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-3 gap-8 mb-10">
           <div>
-            <img src={logo} alt="REACHHER HEALTHTECH logo" className="h-12 w-auto mb-3 brightness-0 invert" />
+            <img src={logo} alt="REACHHER HEALTHTECH logo" className="h-12 w-auto mb-3" />
             <p className="text-primary-foreground/70 font-body text-sm leading-relaxed">{t("footer.description")}</p>
           </div>
           <div>
